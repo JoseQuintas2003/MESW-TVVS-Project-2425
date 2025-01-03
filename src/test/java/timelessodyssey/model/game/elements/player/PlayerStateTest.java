@@ -5,14 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
 import timelessodyssey.model.Vector;
-import timelessodyssey.model.game.elements.Element;
-import timelessodyssey.model.game.elements.Star;
-import timelessodyssey.model.game.elements.player.Player;
 import timelessodyssey.model.game.scene.Scene;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
