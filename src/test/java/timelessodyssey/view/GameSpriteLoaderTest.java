@@ -24,13 +24,15 @@ public class GameSpriteLoaderTest {
         assertNotNull(result);
         assertEquals(gameSpriteLoader.spriteMap.get("test.png"), result);
     }
-    /*
+
     @Test
     public void testGetNewSprite() throws NullPointerException, IOException {
-        Sprite result = gameSpriteLoader.get("star.png");
+        assertNull(gameSpriteLoader.spriteMap.get("sprites/star.png"));
+
+        Sprite result = gameSpriteLoader.get("sprites/star.png");
 
         assertNotNull(result);
-        assertEquals(gameSpriteLoader.spriteMap.get("new.png"), result);
+        assertEquals(gameSpriteLoader.spriteMap.get("sprites/star.png"), result);
     }
-    */
+
 }
