@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class WalkingStateTest {
-    private WalkingState walkingState;
+    private PlayerState walkingState;
 
     @BeforeEach
     public void setUp() {

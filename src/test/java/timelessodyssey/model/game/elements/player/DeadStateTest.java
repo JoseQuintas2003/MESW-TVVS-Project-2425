@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.spy;
 
 public class DeadStateTest {
-    private DeadState deadState;
+    private PlayerState deadState;
 
     @BeforeEach
     public void setUp() {
