@@ -62,7 +62,7 @@ public class MenuViewerTest {
     }
 
     @Test
-    public void testDrawEntriesFIRST_POSITION() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    public void testDrawEntriesFIRST_POSITION() throws InvocationTargetException, NoSuchMethodException, IllegalAccessException, IOException {
         ResizableGUI gui = mock(ResizableGUI.class);
         List<Entry> entries = menu.getEntries();
 

@@ -78,7 +78,7 @@ public class IdleStateTest {
         when(idleState.getPlayer().getScene().isPlayerDying()).thenReturn(false);
         when(idleState.getPlayer().isOverMaxXVelocity()).thenReturn(false);
         when(idleState.getPlayer().isOnGround()).thenReturn(true);
-        when(idleState.getPlayer().getVelocity()).thenReturn(new Vector(2, 0.5));
+        when(idleState.getPlayer().getVelocity()).thenReturn(new Vector(1.7, 0.5));
 
         PlayerState result5 = idleState.getNextState();
 

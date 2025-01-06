@@ -42,7 +42,18 @@ public class CreditsViewerTest {
         viewerProvider = spy(new ViewerProvider(spriteLoader));
         when(viewerProvider.getTextViewer()).thenReturn(textViewer);
 
-        creditsViewer = new CreditsViewer(credits, viewerProvider);
+        creditsViewer = spy(new CreditsViewer(credits, viewerProvider));
+    }
+
+    @Test
+    public void testDraw() throws IOException {
+        ResizableGUI gui = mock(ResizableGUI.class);
+
+        creditsViewer.draw(gui, 0);
+
+        verify(gui, times(1)).clear();
+        verify(creditsViewer).drawBackgroundAndFrame(eq(gui), any(), any());
+        verify(gui, times(1)).refresh();
     }
 
     @Test

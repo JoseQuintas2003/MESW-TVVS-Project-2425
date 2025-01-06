@@ -66,7 +66,7 @@ public class JumpingStateTest {
 
         when(jumpingState.getPlayer().getScene().isPlayerDying()).thenReturn(false);
         when(jumpingState.getPlayer().isOverMaxXVelocity()).thenReturn(false);
-        when(jumpingState.getPlayer().getVelocity()).thenReturn(new Vector(0.8, 0.5));
+        when(jumpingState.getPlayer().getVelocity()).thenReturn(new Vector(0.8, 0));
 
         PlayerState result4 = jumpingState.getNextState();
 

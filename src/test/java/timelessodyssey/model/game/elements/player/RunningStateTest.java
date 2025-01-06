@@ -46,7 +46,7 @@ public class RunningStateTest {
         when(runningState.getPlayer().getScene().isPlayerDying()).thenReturn(false);
         when(runningState.getPlayer().isOverMaxXVelocity()).thenReturn(false);
         when(runningState.getPlayer().isOnGround()).thenReturn(true);
-        when(runningState.getPlayer().getVelocity()).thenReturn(new Vector(2, 0.5));
+        when(runningState.getPlayer().getVelocity()).thenReturn(new Vector(1.7, 0.5));
 
         PlayerState result1 = runningState.getNextState();
 

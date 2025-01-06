@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import timelessodyssey.model.Vector;
 import timelessodyssey.model.game.elements.Element;
+import timelessodyssey.model.game.elements.Spike;
 import timelessodyssey.model.game.elements.Star;
+import timelessodyssey.model.game.elements.Tile;
 import timelessodyssey.model.game.elements.player.Player;
 
 import java.lang.reflect.Field;
@@ -29,6 +31,58 @@ public class SceneTest {
         doCallRealMethod().when(player).getHeight();
 
         scene.setPlayer(player);
+        scene.setSpikes(new Spike[16][20]);
+    }
+
+    @Test
+    public void testGetSpikes() {
+        Spike[][] spikes = scene.getSpikes();
+
+        assertNotNull(spikes);
+        assertEquals(16, spikes.length);
+        assertEquals(20, spikes[0].length);
+    }
+
+    @Test
+    public void testGetTransitionPositionBegin() {
+        scene.setTransitionPositionBegin(new Vector(1, 1));
+
+        Vector result = scene.getTransitionPositionBegin();
+
+        assertNotNull(result);
+        assertEquals(new Vector(1, 1), result);
+    }
+
+    @Test
+    public void testGetTransitionPositionEnd() {
+        scene.setTransitionPositionEnd(new Vector(1, 1));
+
+        Vector result = scene.getTransitionPositionEnd();
+
+        assertNotNull(result);
+        assertEquals(new Vector(1, 1), result);
+    }
+
+    @Test
+    public void testIsAtTransitionPositionMUTATION() {
+        scene.setTransitionPositionBegin(new Vector(8, 10));
+        scene.setTransitionPositionEnd(new Vector(2, 2));
+
+        scene.getPlayer().setPosition(new Vector(2, 2));
+
+        boolean result1 = scene.isAtTransitionPosition();
+
+        assertTrue(result1);
+    }
+
+    @Test
+    public void testGetStartingPosition() {
+        scene.setStartingPosition(new Vector(1, 1));
+
+        Vector result = scene.getStartingPosition();
+
+        assertNotNull(result);
+        assertEquals(new Vector(1, 1), result);
     }
 
     @Test
@@ -71,12 +125,33 @@ public class SceneTest {
         y2 = 300;
         boolean result5 = (boolean) method.invoke(scene, x1, x2, y1, y2);
 
+        x1 = 0;
+        y1 = 0;
+        x2 = 0;
+        y2 = 0;
+        boolean result6 = (boolean) method.invoke(scene, x1, x2, y1, y2);
+
+        x1 = 0;
+        y1 = 0;
+        x2 = scene.getWidth() * Tile.SIZE;
+        y2 = 0;
+        boolean result7 = (boolean) method.invoke(scene, x1, x2, y1, y2);
+
+        x1 = 0;
+        y1 = 0;
+        x2 = 0;
+        y2 = scene.getHeight() * Tile.SIZE;
+        boolean result8 = (boolean) method.invoke(scene, x1, x2, y1, y2);
+
 
         assertFalse(result1);
         assertTrue(result2);
         assertTrue(result3);
         assertTrue(result4);
         assertTrue(result5);
+        assertFalse(result6);
+        assertTrue(result7);
+        assertTrue(result8);
     }
 
     @Test

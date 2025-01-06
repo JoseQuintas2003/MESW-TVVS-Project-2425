@@ -21,6 +21,32 @@ public class WalkingStateTest {
     }
 
     @Test
+    public void testJump() {
+        when(walkingState.getPlayer().getVelocity()).thenReturn(new Vector(0.5, 0.5));
+        when(walkingState.getPlayer().getJumpBoost()).thenReturn(1.0);
+
+
+        Vector result = walkingState.jump();
+
+
+        assertNotNull(result);
+        assertEquals(new Vector(0, -0.5), result);
+    }
+
+    @Test
+    public void testUpdateVelocity() {
+        when(walkingState.getPlayer().getScene().getFriction()).thenReturn(0.5);
+        when(walkingState.getPlayer().getVelocity()).thenReturn(new Vector(0.5, 0.5));
+
+
+        Vector result = walkingState.updateVelocity(new Vector(0.5, 0.5));
+
+
+        assertNotNull(result);
+        assertEquals(new Vector(0.25, 0.5), result);
+    }
+
+    @Test
     public void testDash() {
         when(walkingState.getPlayer().isFacingRight()).thenReturn(true);
         when(walkingState.getPlayer().getDashBoost()).thenReturn(1.0);
@@ -77,7 +103,7 @@ public class WalkingStateTest {
         when(walkingState.getPlayer().getScene().isPlayerDying()).thenReturn(false);
         when(walkingState.getPlayer().isOverMaxXVelocity()).thenReturn(false);
         when(walkingState.getPlayer().isOnGround()).thenReturn(true);
-        when(walkingState.getPlayer().getVelocity()).thenReturn(new Vector(2, 0.5));
+        when(walkingState.getPlayer().getVelocity()).thenReturn(new Vector(1.7, 0.5));
 
         PlayerState result5 = walkingState.getNextState();
 
