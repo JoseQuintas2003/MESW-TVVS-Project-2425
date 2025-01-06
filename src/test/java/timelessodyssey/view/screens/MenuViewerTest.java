@@ -10,7 +10,6 @@ import timelessodyssey.view.Sprite;
 import timelessodyssey.view.SpriteLoader;
 import timelessodyssey.view.ViewerProvider;
 import timelessodyssey.view.menu.EntryViewer;
-import timelessodyssey.view.text.TextViewer;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
